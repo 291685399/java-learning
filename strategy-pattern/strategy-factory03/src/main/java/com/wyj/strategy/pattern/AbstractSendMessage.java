@@ -1,7 +1,9 @@
 package com.wyj.strategy.pattern;
 
-public abstract class AbstractSendMessage {
+public interface AbstractSendMessage {
 
-    abstract public String processor(Integer sendType);
+    String processor(Integer sendType);
+
+    Integer getType();
 
 }

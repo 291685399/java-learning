@@ -7,12 +7,17 @@ import org.springframework.stereotype.Component;
 
 @Component
 @SendType("2")
-public class SendMailMessage extends AbstractSendMessage {
+public class SendMailMessage implements AbstractSendMessage {
 
     @Override
     public String processor(Integer sendType) {
         // 邮件通知
         return String.format("选择的通知方式为 %s", SendTypes.getDesc(sendType));
+    }
+
+    @Override
+    public Integer getType() {
+        return SendTypes.MAIL.getType();
     }
 
 }

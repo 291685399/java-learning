@@ -8,9 +8,15 @@ import com.wyj.strategy.pattern.processor.SendSmsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 @Component
 public class SendMessageContext {
 
+    private static Map<Integer, AbstractSendMessage> strategyMap;
     @Autowired
     private SendSmsMessage sendSmsMessage;
     @Autowired
@@ -20,19 +26,17 @@ public class SendMessageContext {
     @Autowired
     private SendPhoneMessage sendPhoneMessage;
 
+    static {
+        List<AbstractSendMessage> strategyList = new ArrayList(4);
+        strategyList.add(new SendSmsMessage());
+        strategyList.add(new SendMailMessage());
+        strategyList.add(new SendInformThePersonMessage());
+        strategyList.add(new SendPhoneMessage());
+        strategyMap = strategyList.stream().collect(Collectors.toMap(AbstractSendMessage::getType, p -> p));
+    }
+
     public AbstractSendMessage getInstance(Integer sendType) {
-        switch (sendType) {
-            case 1:
-                return sendSmsMessage;
-            case 2:
-                return sendMailMessage;
-            case 3:
-                return sendInformThePersonMessage;
-            case 4:
-                return sendPhoneMessage;
-            default:
-                return sendSmsMessage;
-        }
+        return strategyMap.get(sendType);
     }
 
 }
