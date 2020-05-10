@@ -4,6 +4,9 @@ import com.wyj.strategy.enums.SendTypes;
 import com.wyj.strategy.pattern.AbstractSendMessage;
 import org.springframework.stereotype.Component;
 
+/**
+ * 邮件通知
+ */
 public class SendMailMessage extends AbstractSendMessage {
 
     @Override

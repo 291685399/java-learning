@@ -13,18 +13,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * 类加载的时候加载type与对应实现类的Map
+ */
 @Component
 public class SendMessageContext {
 
     private static Map<Integer, AbstractSendMessage> strategyMap;
-    @Autowired
-    private SendSmsMessage sendSmsMessage;
-    @Autowired
-    private SendMailMessage sendMailMessage;
-    @Autowired
-    private SendInformThePersonMessage sendInformThePersonMessage;
-    @Autowired
-    private SendPhoneMessage sendPhoneMessage;
 
     static {
         List<AbstractSendMessage> strategyList = new ArrayList(4);

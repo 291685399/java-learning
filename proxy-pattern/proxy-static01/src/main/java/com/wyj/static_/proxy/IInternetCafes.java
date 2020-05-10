@@ -5,7 +5,7 @@ package com.wyj.static_.proxy;
  */
 public interface IInternetCafes {
 
-    public final String INTERNET_CAFES_NAME = "三国网吧";
+    String INTERNET_CAFES_NAME = "三国网吧";
 
     /**
      * 上网

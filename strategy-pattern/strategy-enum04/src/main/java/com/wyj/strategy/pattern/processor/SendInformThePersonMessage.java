@@ -4,10 +4,8 @@ import com.wyj.strategy.enums.SendTypes;
 import com.wyj.strategy.pattern.AbstractSendMessage;
 import org.springframework.stereotype.Component;
 
-/**
- * 当面通知
- */
-public class SendInformThePersonMessage extends AbstractSendMessage {
+@Component
+public class SendInformThePersonMessage implements AbstractSendMessage {
 
     @Override
     public String processor(Integer sendType) {

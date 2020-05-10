@@ -2,11 +2,8 @@ package com.wyj.strategy.pattern.processor;
 
 import com.wyj.strategy.enums.SendTypes;
 import com.wyj.strategy.pattern.AbstractSendMessage;
-import com.wyj.strategy.pattern.SendType;
 import org.springframework.stereotype.Component;
 
-@Component
-@SendType("2")
 public class SendMailMessage implements AbstractSendMessage {
 
     @Override

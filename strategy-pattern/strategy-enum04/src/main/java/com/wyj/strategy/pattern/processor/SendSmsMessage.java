@@ -4,14 +4,12 @@ import com.wyj.strategy.enums.SendTypes;
 import com.wyj.strategy.pattern.AbstractSendMessage;
 import org.springframework.stereotype.Component;
 
-/**
- * 当面通知
- */
-public class SendInformThePersonMessage extends AbstractSendMessage {
+@Component
+public class SendSmsMessage implements AbstractSendMessage {
 
     @Override
     public String processor(Integer sendType) {
-        // 当面通知
+        // 短信通知
         return String.format("选择的通知方式为 %s", SendTypes.getDesc(sendType));
     }
 

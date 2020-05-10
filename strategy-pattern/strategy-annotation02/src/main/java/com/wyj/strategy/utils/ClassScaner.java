@@ -23,6 +23,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * 类扫描加载工具
+ */
 public class ClassScaner implements ResourceLoaderAware {
 
     private final List<TypeFilter> includeFilters = new LinkedList<TypeFilter>();
@@ -60,10 +63,8 @@ public class ClassScaner implements ResourceLoaderAware {
 
     @Override
     public void setResourceLoader(ResourceLoader resourceLoader) {
-        this.resourcePatternResolver = ResourcePatternUtils
-                .getResourcePatternResolver(resourceLoader);
-        this.metadataReaderFactory = new CachingMetadataReaderFactory(
-                resourceLoader);
+        this.resourcePatternResolver = ResourcePatternUtils.getResourcePatternResolver(resourceLoader);
+        this.metadataReaderFactory = new CachingMetadataReaderFactory(resourceLoader);
     }
 
     public void addIncludeFilter(TypeFilter includeFilter) {

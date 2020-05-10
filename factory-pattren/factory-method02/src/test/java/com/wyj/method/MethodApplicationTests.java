@@ -1,7 +1,6 @@
 package com.wyj.method;
 
 import com.wyj.method.factory.MessageFactory;
-import com.wyj.method.service.MessageServer;
 import com.wyj.method.service.impl.SmsMessageServer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +17,7 @@ public class MethodApplicationTests {
 
     @Test
     public void contextLoads() {
-        System.out.println(smsMessageServer.sendMessage("嘿嘿嘿"));
+        System.out.println(new MessageFactory().createSmsInstance().sendMessage("嘿嘿嘿"));
     }
 
 }

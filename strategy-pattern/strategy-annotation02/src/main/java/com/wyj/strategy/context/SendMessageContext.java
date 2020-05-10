@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Map;
 
+/**
+ * 用于根据type从项目启动加载的关联Map中获取对应实现类
+ */
 public class SendMessageContext {
 
     private Map<Integer, Class> sendTypeMap;

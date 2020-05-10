@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
+/**
+ * 继承bean后置处理器，在bean加载的时候初始化Map
+ */
 @Component
 public class SendProcessor implements BeanFactoryPostProcessor {
 
